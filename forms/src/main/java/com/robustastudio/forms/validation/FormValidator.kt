@@ -1,4 +1,4 @@
-package com.robusta.forms.validation
+package com.robustastudio.forms.validation
 
 import android.support.design.widget.TextInputLayout
 import android.widget.EditText
@@ -44,7 +44,7 @@ object FormValidator {
 
     abstract class DefaultFormValidator : Validator.ValidationListener {
 
-        override fun onValidationFailed(errors: List<ValidationError>) {
+        override fun onValidationFailed(errors: MutableList<ValidationError>) {
             for (error in errors) {
                 val view = error.view
                 val message = error.getCollatedErrorMessage(view.context)
