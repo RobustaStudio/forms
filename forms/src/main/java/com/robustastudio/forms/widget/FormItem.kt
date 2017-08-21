@@ -14,6 +14,7 @@ import com.google.i18n.phonenumbers.NumberParseException
 import com.google.i18n.phonenumbers.PhoneNumberUtil
 import com.google.i18n.phonenumbers.Phonenumber
 import com.robustastudio.forms.obtainStyledAttributesSafely
+import com.robustastudio.forms.utils.TextDrawable
 import com.robustasutdio.forms.R
 
 
@@ -43,6 +44,7 @@ open class FormItem @JvmOverloads constructor(context: Context,
             val textFontPath: String? = it.getString(R.styleable.FormItem_fontPath)
             val drawableRes = it.getResourceId(R.styleable.FormItem_drawable, -1)
             val inputType = it.getInteger(R.styleable.FormItem_inputType, /* text input type */ 0x1)
+            val textAsDrawable = it.getString(R.styleable.FormItem_textAsDrawable)
 
             this.hint = hint
             editText.setLines(lines)
@@ -55,8 +57,12 @@ open class FormItem @JvmOverloads constructor(context: Context,
                 val loadedTypeface = Typeface.createFromAsset(getContext().assets, textFontPath)
                 setTypeface(loadedTypeface)
             }
+            textAsDrawable?.let {
+                val txtDrawable = TextDrawable(textAsDrawable)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(null, txtDrawable)
+            }
             if (drawableRes != -1) {
-                setCompoundDrawablesWithIntrinsicBounds(null, drawableRes)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(null, drawableRes)
             }
             if (maxLines != -1) {
                 editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLines))
@@ -72,11 +78,11 @@ open class FormItem @JvmOverloads constructor(context: Context,
 
     override fun getEditText(): EditText = super.getEditText()!!
 
-    fun setCompoundDrawablesWithIntrinsicBounds(start: Drawable? = null, end: Drawable? = null) {
+    fun setCompoundDrawablesRelativeWithIntrinsicBounds(start: Drawable? = null, end: Drawable? = null) {
         editText.setCompoundDrawablesRelativeWithIntrinsicBounds(start, null, end, null)
     }
 
-    fun setCompoundDrawablesWithIntrinsicBounds(start: Int? = null, end: Int? = null) {
+    fun setCompoundDrawablesRelativeWithIntrinsicBounds(start: Int? = null, end: Int? = null) {
         editText.setCompoundDrawablesRelativeWithIntrinsicBounds(start ?: 0, 0, end ?: 0, 0)
     }
 
