@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FormItem">
+        <attr name="android:hint" />
+        <!-- check https://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType -->
+        <attr name="inputType" format="enum">
+            <enum name="text" value="0x1" />
+            <enum name="number" value="0x2" />
+            <enum name="numberDecimal" value="0x2002" />
+            <enum name="phone" value="0x3" />
+            <enum name="textPassword" value="0x81" />
+            <enum name="email" value="0x21" />
+        </attr>
+        <attr name="android:lines" />
+        <attr name="android:gravity" />
+        <attr name="android:maxLength" />
+        <attr name="android:textSize" />
+        <attr name="fontPath" format="string" />
+        <attr name="drawable" format="reference" />
+    </declare-styleable>
+</resources>
