@@ -39,14 +39,12 @@ open class FormItem @JvmOverloads constructor(context: Context,
         context.obtainStyledAttributesSafely(attrs, R.styleable.FormItem) {
             val lines = it.getInt(R.styleable.FormItem_android_lines, 1)
             val maxLength = it.getInt(R.styleable.FormItem_android_maxLength, -1)
-            val textSize = it.getFloat(R.styleable.FormItem_android_textSize, 12f)
             val textFontPath: String? = it.getString(R.styleable.FormItem_fontPath)
             val drawableRes = it.getResourceId(R.styleable.FormItem_drawable, -1)
             val inputType = it.getInteger(R.styleable.FormItem_inputType, /* text input type */ 0x1)
             val textAsDrawable = it.getString(R.styleable.FormItem_textAsDrawable)
 
             editText.setLines(lines)
-            editText.textSize = textSize
             editText.inputType = inputType
             if (isPasswordInputType(inputType)) {
                 isPasswordVisibilityToggleEnabled = true
@@ -57,10 +55,10 @@ open class FormItem @JvmOverloads constructor(context: Context,
             }
             textAsDrawable?.let {
                 val txtDrawable = TextDrawable(textAsDrawable)
-                setCompoundDrawablesRelativeWithIntrinsicBounds(null, txtDrawable)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(txtDrawable)
             }
             if (drawableRes != -1) {
-                setCompoundDrawablesRelativeWithIntrinsicBounds(null, drawableRes)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(drawableRes)
             }
             if (maxLength != -1) {
                 editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
@@ -76,12 +74,12 @@ open class FormItem @JvmOverloads constructor(context: Context,
 
     override fun getEditText(): EditText = super.getEditText()!!
 
-    fun setCompoundDrawablesRelativeWithIntrinsicBounds(start: Drawable? = null, end: Drawable? = null) {
-        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(start, null, end, null)
+    fun setCompoundDrawablesRelativeWithIntrinsicBounds(end: Drawable? = null) {
+        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, end, null)
     }
 
-    fun setCompoundDrawablesRelativeWithIntrinsicBounds(start: Int? = null, end: Int? = null) {
-        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(start ?: 0, 0, end ?: 0, 0)
+    fun setCompoundDrawablesRelativeWithIntrinsicBounds(end: Int? = null) {
+        editText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, end ?: 0, 0)
     }
 
     fun getContentAsString(): String = editText.text.toString().trim()

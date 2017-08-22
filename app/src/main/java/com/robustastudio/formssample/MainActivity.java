@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         validator = FormValidator.newInstance(this, new FormValidator.DefaultFormValidator() {
             @Override
             public void onValidationSucceeded() {
-                Toast.makeText(MainActivity.this, "Validation Succeeded", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Validation Succeeded, " + nameFormItem.getContentAsString(),
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
