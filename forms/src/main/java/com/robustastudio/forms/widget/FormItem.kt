@@ -37,16 +37,14 @@ open class FormItem @JvmOverloads constructor(context: Context,
 
         // get attributes
         context.obtainStyledAttributesSafely(attrs, R.styleable.FormItem) {
-            val hint = it.getString(R.styleable.FormItem_android_hint)
             val lines = it.getInt(R.styleable.FormItem_android_lines, 1)
-            val maxLines = it.getInt(R.styleable.FormItem_android_maxLength, -1)
+            val maxLength = it.getInt(R.styleable.FormItem_android_maxLength, -1)
             val textSize = it.getFloat(R.styleable.FormItem_android_textSize, 12f)
             val textFontPath: String? = it.getString(R.styleable.FormItem_fontPath)
             val drawableRes = it.getResourceId(R.styleable.FormItem_drawable, -1)
             val inputType = it.getInteger(R.styleable.FormItem_inputType, /* text input type */ 0x1)
             val textAsDrawable = it.getString(R.styleable.FormItem_textAsDrawable)
 
-            this.hint = hint
             editText.setLines(lines)
             editText.textSize = textSize
             editText.inputType = inputType
@@ -64,10 +62,10 @@ open class FormItem @JvmOverloads constructor(context: Context,
             if (drawableRes != -1) {
                 setCompoundDrawablesRelativeWithIntrinsicBounds(null, drawableRes)
             }
-            if (maxLines != -1) {
-                editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLines))
+            if (maxLength != -1) {
+                editText.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
                 this.isCounterEnabled = true
-                this.counterMaxLength = maxLines
+                this.counterMaxLength = maxLength
             }
         }
     }

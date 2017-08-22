@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FormItem">
-        <attr name="android:hint" />
         <!-- check https://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType -->
         <attr name="inputType" format="enum">
             <enum name="text" value="0x1" />

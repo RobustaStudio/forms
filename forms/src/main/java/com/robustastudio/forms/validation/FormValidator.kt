@@ -28,6 +28,7 @@ object FormValidator {
 
      * @return new Validator instance
      */
+    @JvmStatic
     fun newInstance(controller: Any,
                     defaultFormValidator: DefaultFormValidator): Validator {
         val validator = Validator(controller)
