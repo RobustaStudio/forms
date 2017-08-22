@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     tools:context="com.robustastudio.formssample.MainActivity">
 
     <com.robustastudio.forms.widget.FormItem
+        android:id="@+id/name_form_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
@@ -15,10 +17,19 @@
         android:text="Hello World!" />
 
     <com.robustastudio.forms.widget.FormItem
+        android:id="@+id/password_form_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:text="Hello World!"
         app:inputType="textPassword" />
+
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Login" />
 
 </LinearLayout>
