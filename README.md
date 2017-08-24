@@ -55,7 +55,7 @@ private Validator validator;
 ### Adding drawable 
            
 ```xml
-app:drawable="@drawable/ic_success"
+app:drawable="@drawable/ic_email"
 ```
 
 ### Adding Vector drawable
@@ -78,6 +78,30 @@ app:textAsDrawable="LE"
 android:maxLength="10"
 ```
 - This adds a counter view, and sets maximum characters number
+
+### Create NonEditable field
+
+- this is useful for creating uneditable fields that should execute action when clicked
+
+```xml
+<com.robustastudio.forms.widget.UnEditableFormItem
+android:id="@+id/full_name_item"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+app:drawable="@drawable/ic_s"
+android:hint="@string/choose_city" />
+```
+
+- set a listener in Java
+
+```java
+ unEditableFormItem.setListener(new UnEditableFormItem.OnFormItemClickedListener() {
+            @Override
+            public void onFormItemClicked(UnEditableFormItem unEditableFormItem) {
+                // open dialog to choose city
+            }
+        });
+```
 
 
 
