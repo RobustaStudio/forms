@@ -1,9 +1,26 @@
+[![](https://jitpack.io/v/RobustaStudio/forms.svg)](https://jitpack.io/#RobustaStudio/forms)
+
 # Forms
 - Thin wrapper above `TextInpulLayout` and `TextInpulEditText` from the support library, `Validator` from android-saripaar library
 
 - This library aims to make buidling forms faster
 
 ## Usage
+
+- Add this to your project gradle file
+
+```xml
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+
+- Add this to your app gradle file
+```xml
+    compile 'com.github.RobustaStudio:forms:x.y.z'
+```
 
 - Add `FormItem` to xml
 
