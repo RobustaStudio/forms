@@ -16,5 +16,7 @@
         <attr name="fontPath" format="string" />
         <attr name="drawable" format="reference" />
         <attr name="textAsDrawable" format="string" />
+        <attr name="android:textColor"/>
+        <attr name="android:textAppearance"/>
     </declare-styleable>
 </resources>

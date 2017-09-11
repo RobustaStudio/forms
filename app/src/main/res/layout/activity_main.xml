@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:hint="Name"
         android:maxLength="10"
+        app:theme="@style/FormItemTheme"
         android:text="Hello World!" />
 
     <com.robustastudio.forms.widget.FormItem

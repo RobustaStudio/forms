@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+import com.mobsandgeeks.saripaar.annotation.Order;
 import com.robustastudio.forms.utils.FormItemUtil;
 import com.robustastudio.forms.validation.FormValidator;
 import com.robustastudio.forms.widget.FormItem;
@@ -14,7 +15,9 @@ import com.robustastudio.forms.widget.FormItem;
 public class MainActivity extends AppCompatActivity {
 
     @NotEmpty
+    @Order(0)
     FormItem nameFormItem;
+    @Order(1)
     @NotEmpty
     FormItem passwordFormItem;
 
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FormItemUtil.removeErrorHintIfFound(nameFormItem, passwordFormItem);
-                validator.validate();
+                validator.validateTill(nameFormItem);
             }
         });
     }

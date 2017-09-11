@@ -6,6 +6,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.support.design.widget.TextInputEditText
 import android.support.design.widget.TextInputLayout
+import android.support.v4.content.ContextCompat
 import android.text.InputFilter
 import android.text.TextUtils
 import android.util.AttributeSet
@@ -43,6 +44,8 @@ open class FormItem @JvmOverloads constructor(context: Context,
             val drawableRes = it.getResourceId(R.styleable.FormItem_drawable, -1)
             val inputType = it.getInteger(R.styleable.FormItem_inputType, /* text input type */ 0x1)
             val textAsDrawable = it.getString(R.styleable.FormItem_textAsDrawable)
+            val textColor = it.getColor(R.styleable.FormItem_android_textColor, Color.BLACK)
+            val textAppearanceRes = it.getResourceId(R.styleable.FormItem_android_textAppearance, -1)
 
             editText.setLines(lines)
             editText.inputType = inputType
@@ -65,6 +68,11 @@ open class FormItem @JvmOverloads constructor(context: Context,
                 this.isCounterEnabled = true
                 this.counterMaxLength = maxLength
             }
+            if (textAppearanceRes != -1) {
+                editText.setTextAppearance(context, textAppearanceRes)
+            }
+            editText.setTextColor(textColor)
+
         }
     }
 
