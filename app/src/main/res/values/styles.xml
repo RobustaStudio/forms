@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="FormItemTheme" parent="AppTheme">
+        <item name="colorPrimary">#FFFF00</item>
+        <item name="colorPrimaryDark">#00FF00</item>
+        <item name="colorAccent">#0000FF</item>
+        <item name="colorControlNormal">#0000FF</item> <!-- Used for the underline when not selected -->
+        <item name="colorControlActivated">#FF00FF</item> <!-- Underline and floating text when active -->
+        <item name="android:textColor">@android:color/holo_green_dark</item>
+        <item name="android:textColorHint">@android:color/holo_red_dark</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="errorTextAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="hintTextAppearance">@style/TextAppearance.AppCompat.Caption</item>
+    </style>
+
 </resources>
