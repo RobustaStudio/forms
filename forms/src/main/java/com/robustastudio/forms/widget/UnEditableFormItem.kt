@@ -9,7 +9,7 @@ import android.view.MotionEvent
  * Created by Amr Elmasry on 08/08/17.
  */
 
-class UnEditableFormItem @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
+open class UnEditableFormItem @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
         FormItem(context, attrs) {
 
     var listener: OnFormItemClickedListener? = null
